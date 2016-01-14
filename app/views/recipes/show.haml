@@ -9,7 +9,7 @@
 
     .row
       .col-md-6
-        #ingredient
+        #ingredients
           %h2 Ingredients
           %ul
             - @recipe.ingredients.each do |ingredient|
@@ -17,10 +17,10 @@
 
       .col-md-6
         #directions
-          %h2 directions
+          %h2 Directions
           %h1
-            - @recipe.directions.each do |directions|
-            %li= direction.step
+            - @recipe.directions.each do |direction|
+              %li= direction.step
 
     .row
       .col-md-12
