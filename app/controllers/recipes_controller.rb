@@ -8,12 +8,11 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @recipe = current_user.recipes.build
+    @recipe = Recipe.new
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
-
+    @recipe = Recipe.new(recipe_params  )
     if @recipe.save
       redirect_to @recipe, notice: "Successfully created new recipe"
     else
@@ -40,7 +39,7 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   private
 
   def recipe_params
-  		params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
+      params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
 
   def find_recipe
