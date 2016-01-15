@@ -36,6 +36,7 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
     redirect_to root_path, notice: "Sucessfully deleted recipe"
   end
 
+
   private
 
   def recipe_params
